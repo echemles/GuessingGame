@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fullstack Guessing Game Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body background="img/7.jpg"> 
+    <div class="container">
+      <header class="page-header">
+        <h3 style="color: #e50000; font-weight: bold; font-size: 40px;">GUESS THE NUMBER</h3>
+      </header>
+      <div class="row">
+        <div class="col-md-3">
+          <h2>Instructions</h2>
+          <ol>
+            <li>Provide a number from <strong>1-100</strong> in the input box on the right.</li>
+            <li>Press "<strong>Submit Guess</strong>" and see if your guess is correct.</li>
+            <li>Repeat until you have guessed the random number.</li>
+            <li>You may use the hint button if you need help.</li>
+          </ol>
+          <button style= "margin-top: 50px; margin-bottom: 50px;" type='button' onclick='newGame()' class="btn btn-success btn-lg">New Game</a>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-8 jumbotron">
+          <h1>Guess a number</h1>
+          <form id="guess2">
+            <input id="guess" placeholder='1-100' class='input' style="line-height: 50px; font-size: 40px; width: 250px" min="1" max="100" type="number"/>
+          </form>
+          <h3 id='chances'>5 Guesses Remaining</h3>
+          <p id="status" class="text-info"></p>
+          <br>
+          <div class="btn-group">
+            <button type='button' onclick='submit()' class="btn btn-lg btn-danger">Submit Guess</button>
+            <button type='button' onclick='hint()' class="btn btn-info btn-lg">Get a Hint</button>
+          </div> 
+          <h5 id="hint" style="color: #5bc0de"class="text-info"></h5>
+        </div>
+      </div>
+      <hr width="100%">
+      <div>
+        <p style="text-align: right;">&copy; 2015 Lester Echem for <a href="http://www.fullstackacademy.com/">Fullstack Academy<a></p>
+      </div >
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src='js/game.js'></script>
+  </body>
+</html>
