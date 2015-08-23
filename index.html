@@ -5,35 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   </head>
   <body background="img/7.jpg"> 
     <div class="container">
       <header class="page-header">
-        <h3 style="color: #e50000; font-weight: bold; font-size: 40px;">GUESS THE NUMBER</h3>
+        <h1 style="font-family: 'Lobster', cursive; color: #ac0000; font-size: 80px; margin-bottom: 10px;">Guess the Number</h1>
       </header>
       <div class="row">
-        <div class="col-md-3">
-          <h2 style="margin-top: 0px;">Instructions</h2>
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-3">
+          <h2 style="font-family:"Lobster"!important;">Instructions</h2>
           <ol>
             <li style="margin: 20px 0;">Provide a number from <strong>1-100</strong> in the input box on the right.</li>
             <li style="margin: 20px 0;">Press "<strong>Submit Guess</strong>" and see if your guess is correct.</li>
             <li style="margin: 20px 0;">Repeat until you have guessed the random number.</li>
             <li style="margin: 20px 0;">You may use the hint button if you need help.</li>
           </ol>
-          <button style= "margin-top: 20px; margin-bottom: 50px;" type='button' onclick='newGame()' class="btn btn-success btn-lg">New Game</a>
+          <button style= "margin-top: 10px;" type='button' onclick='newGame()' class="btn btn-success btn-lg">New Game</button>
+          <h4 id="guessed" style="margin-top: 20px;"></h4>
+          <h4 id="hint2" style="font-size:12px"></h4>
         </div>
         <div class="col-sm-1">
         </div>
-        <div class="col-sm-8 jumbotron">
-          <h1>Guess a number</h1>
-          <form id="guess2">
-            <input id="guess" placeholder='1-100' class='input' style="line-height: 50px; font-size: 40px; width: 250px" min="1" max="100" type="number"/>
+        <div class="col-sm-7 jumbotron" style="background-image: url(img/note.jpg); width: 500px;">
+          <img src="img/pen.png" style="z-index:999; float:left; margin: 0px -20px -100px -120px;"></img>
+          <h1>GUESS</h1>
+          <form id="guess2" onsubmit="return false">
+            <input id="guess" placeholder='1-100' class='input' style="line-height: 50px; font-size: 40px; width: 250px" onkeydown="if(event.keyCode===13)submit2()" min="1" max="100" type="number" />
           </form>
-          <h3 id='chances'>5 Guesses Remaining</h3>
+          <h3 id='chances'>10 Guesses Remaining</h3>
           <p id="status" class="text-info"></p>
           <br>
           <div class="btn-group">
-            <button type='button' onclick='submit()' class="btn btn-lg btn-danger">Submit Guess</button>
+            <button type='button' onclick='submit2()' class="btn btn-lg btn-danger">Submit Guess</button>
             <button type='button' onclick='hint()' class="btn btn-info btn-lg">Get a Hint</button>
           </div> 
           <h5 id="hint" style="color: #5bc0de"class="text-info"></h5>
