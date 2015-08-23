@@ -31,7 +31,8 @@ function submit(){
     alert("You've guessed the number!");
     return newGame();
   } else {
-    document.getElementById("status").innerHTML = "Your guess is incorrect.\nPlease try again.";
+    if (input>answer)document.getElementById("status").innerHTML = "Your guess is incorrect.\nTry a lower number.";
+    else document.getElementById("status").innerHTML = "Your guess is incorrect.\nTry a higher number.";
     document.getElementById("chances").innerHTML = chances + " Guesses Remaining";
   }
 }
