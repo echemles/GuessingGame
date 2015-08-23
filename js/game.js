@@ -10,8 +10,8 @@ function newGame(){
 
 function hint(){
   input = Number(document.getElementById("guess").value);
-  if (input===NaN || input===0) {
-    document.getElementById("hint").innerHTML = "You might want to guess first."
+  if (input===NaN || input > 100 || input < 1) {
+    document.getElementById("hint").innerHTML = "You might want to put a proper guess first."
     return;
   }
   document.getElementById("hint").innerHTML = "You might want to add or subtract " + Math.abs(answer-input) + " to your guess."
