@@ -8,6 +8,7 @@ function newGame(){
   document.getElementById("status").innerHTML = "A new game has started.";
   document.getElementById("guessed").innerHTML = '';
   document.getElementById("hint").innerHTML = '';
+  document.getElementById("hint").innerHTML = '';
   document.getElementById("guess2").reset();
 }
 
