@@ -4,24 +4,23 @@
     <title>Fullstack Guessing Game Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   </head>
   <body background="img/7.jpg"> 
     <div class="container">
       <header class="page-header">
-        <h1 style="font-family: 'Lobster', cursive; color: #ac0000; font-size: 80px; margin-bottom: 10px;">Guess the Number</h1>
+        <h1 id='lobsterred' style="font-size: 80px; margin-bottom: 10px;">Guess the Number</h1>
       </header>
-      <div class="row">
+      <div class="row" style='margin-top: 50px;'>
         <div class="col-sm-1">
         </div>
         <div class="col-sm-3">
-          <h2 style="font-family:"Lobster"!important;">Instructions</h2>
+          <h2>Instructions</h2>
           <ol>
-            <li style="margin: 20px 0;">Provide a number from <strong>1-100</strong> in the input box on the right.</li>
-            <li style="margin: 20px 0;">Press "<strong>Submit Guess</strong>" and see if your guess is correct.</li>
-            <li style="margin: 20px 0;">Repeat until you have guessed the random number.</li>
-            <li style="margin: 20px 0;">You may use the hint button if you need help.</li>
+            <li>Type a number from <strong>1-100</strong> in the input box on the right.</li>
+            <li>Press "<strong>Submit Guess</strong>" and see if your guess is correct.</li>
+            <li>Repeat until you have guessed the random number.</li>
+            <li>You may use the hint button if you need help.</li>
           </ol>
           <button style= "margin-top: 10px;" type='button' onclick='newGame()' class="btn btn-success btn-lg">New Game</button>
           <h4 id="guessed" style="margin-top: 20px;"></h4>
@@ -30,19 +29,19 @@
         <div class="col-sm-1">
         </div>
         <div class="col-sm-7 jumbotron" style="background-image: url(img/note.jpg); width: 500px;">
-          <img src="img/pen.png" style="z-index:999; float:left; margin: 0px -20px -100px -120px;"></img>
+          <img src="img/pen.png" id='penimage'></img>
           <h1>GUESS</h1>
           <form id="guess2" onsubmit="return false">
             <input id="guess" placeholder='1-100' class='input' style="line-height: 50px; font-size: 40px; width: 250px" onkeydown="if(event.keyCode===13)submit2()" min="1" max="100" type="number" />
           </form>
-          <h3 id='chances'>10 Guesses Remaining</h3>
+          <h3 id='chances'></h3>
           <p id="status" class="text-info"></p>
           <br>
           <div class="btn-group">
             <button type='button' onclick='submit2()' class="btn btn-lg btn-danger">Submit Guess</button>
             <button type='button' onclick='hint()' class="btn btn-info btn-lg">Get a Hint</button>
           </div> 
-          <h5 id="hint" style="color: #5bc0de"class="text-info"></h5>
+          <h5 id="hint" style="color: #5bc0de" class="text-info"></h5>
         </div>
       </div>
       <hr width="100%">
@@ -52,6 +51,18 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <div class='difficulty'>
+      <div class="btn-group">
+        <p id='lobsterred' style="font-size: 80px;">Pick a difficulty:</p>
+        <button type='button' onclick='easyGame(), startGame()' class="btn-success btn-lg">Easy</button>
+        <button type='button' onclick='medGame(), startGame()' class="btn-info btn-lg">Medium</button>
+        <button type='button' onclick='hardGame(), startGame()' class="btn-danger btn-lg">Hard</button>
+      </div> 
+    </div>
+    <div class='victory'>
+      <p id='lobsterred' style="font-size: 80px;">You got it!</p>
+      <button value="Reload Page" onClick="window.location.reload()" class="btn btn-info btn-lg">Start a New Game</button>
+    </div>
     <script src='js/game.js'></script>
   </body>
 </html>

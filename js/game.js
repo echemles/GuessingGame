@@ -1,13 +1,38 @@
-var chances = 10, answer = Math.ceil(Math.random()*100), input, difference, guessed = [];
+$('.victory').hide();
+$('.container').hide();
+
+var chances, originalChances, answer = Math.ceil(Math.random()*100), input, difference, guessed = [];
+
+function easyGame(){
+  chances = 10;
+  originalChances = 10;
+}
+
+function medGame(){
+  chances = 6;
+  originalChances = 6;
+}
+
+function hardGame(){
+  chances = 3;
+  originalChances = 3;
+}
+
+function startGame(){
+  $('.difficulty').hide();
+  $('.container').show();
+  document.getElementById("chances").innerHTML = chances + " Guesses Remaining";
+}
 
 function newGame(){
   answer = Math.ceil(Math.random()*100);
-  chances = 10;
+  chances = originalChances;
   guessed = [];
   document.getElementById("chances").innerHTML = chances + " Guesses Remaining";
   document.getElementById("status").innerHTML = "A new game has started.";
   document.getElementById("guessed").innerHTML = '';
   document.getElementById("hint").innerHTML = '';
+  document.getElementById("hint2").innerHTML = '';
   document.getElementById("guess2").reset();
 }
 
@@ -19,7 +44,7 @@ function hint(){
   }
   difference = Math.abs(answer-input);
   if (difference<5) document.getElementById("hint").innerHTML = "It's either you're correct or you're terribly close!";
-  else if (difference<10) document.getElementById("hint").innerHTML = "That number is a little close to the answer."
+  else if (difference<15) document.getElementById("hint").innerHTML = "That number is a little close to the answer."
   else document.getElementById("hint").innerHTML = "Your guess is far from the answer.";
 }
 
@@ -38,7 +63,8 @@ function submit2(){
     alert("You have reached the maximum tries.");
     return newGame();
   } else if (input===answer) {
-    alert("You've guessed the number!");
+    $('.container').fadeOut();
+    $('.victory').show();
     return newGame();
   } else {
     if (input>answer) document.getElementById("status").innerHTML = "Your guess is incorrect.\nGo lower.";
@@ -52,4 +78,6 @@ function submit2(){
     }
   }
 }
+
+
 
