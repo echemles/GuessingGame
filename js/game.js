@@ -1,5 +1,6 @@
 $('.victory').hide();
 $('.container').hide();
+$('.gameover').hide();
 
 var chances, originalChances, answer = Math.ceil(Math.random()*100), input, difference, guessed = [];
 
@@ -60,12 +61,12 @@ function submit2(){
   }
   chances--;
   if(chances<1) { 
-    alert("You have reached the maximum tries.");
-    return newGame();
+    $('.container').hide();
+    $("body").css("background", "#2C3539");
+    $('.gameover').show();
   } else if (input===answer) {
     $('.container').fadeOut();
     $('.victory').show();
-    return newGame();
   } else {
     if (input>answer) document.getElementById("status").innerHTML = "Your guess is incorrect.\nGo lower.";
     else document.getElementById("status").innerHTML = "Your guess is incorrect.\nGo higher.";
